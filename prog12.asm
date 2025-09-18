@@ -1,0 +1,31 @@
+;THOMAS JOSHUA R. CORONEL
+;SEPTEMBER 13, 2025
+TITLE prog12.asm
+DOSSEG
+.MODEL SMALL
+.STACK 0100H
+.DATA
+    str1 db "ARELLANO$"
+.CODE
+    MOV AX, @DATA
+    MOV DS, AX
+
+    MOV AX, 0600H
+    MOV BH, 07H
+    MOV CX, 0000H           ;CLEAR SCREEN
+    MOV DX, 184FH
+    INT 10H
+
+    MOV AH, 02H
+    MOV BH, 00H
+    MOV DH, 0CH             ;ROW = 12 IN DECIMAL
+    MOV DL, 23H             ;COL = 35 IN DECIMAL
+    INT 10H
+
+    MOV AH, 09H
+    MOV DX, OFFSET str1
+    INT 21H
+
+    MOV AX, 4C00H
+    INT 21H
+END

@@ -1,0 +1,183 @@
+;THOMAS JOSHUA R. CORONEL
+;SEPTEMBER 13, 2025
+TITLE prog15.asm
+DOSSEG
+.MODEL SMALL
+.STACK 0100H
+.DATA
+.CODE
+    MOV AX, @DATA
+    MOV DS, AX
+
+    MOV AX, 0600H
+    MOV BH, 07H         ;CLEAR SCREEN
+    MOV CX, 0000H
+    MOV DX, 184FH
+    INT 10H
+
+    MOV AH, 02H         ;SET CURSOR
+    MOV BH, 00H
+    MOV DH, 0CH         ;ROW 12
+    MOV DL, 18H         ;COL 18
+    INT 10H
+
+    MOV AH, 09H         ;REQUEST CHARACTER DISPLAY
+    MOV AL, 00H         ;DO NOT ADVANCE CUSROR
+    MOV BH, 00H         ;PAGE 0
+    MOV BL, 0AEH        ;2 + 8 BLINKING GREEN, E YELLOW
+    MOV CX, 0001H       ;NUMBER OF CHARACTERS
+    MOV AL, 41H         ;A
+    INT 10H
+
+    MOV AH, 02H         ;SET CURSOR
+    MOV BH, 00H
+    MOV DH, 0CH         ;ROW 12
+    MOV DL, 19H         ;COL 19
+    INT 10H
+
+    MOV AH, 09H         ;REQUEST CHARACTER DISPLAY
+
+    MOV AL, 00H         ;DO NOT ADVANCE CUSROR
+    MOV BH, 00H         ;PAGE 0
+    MOV BL, 47H         ;2 + 8 BLINKING GREEN, E YELLOW
+    MOV CX, 0001H       ;NUMBER OF CHARACTERS
+    MOV AL, 44H         ;D
+    MOV CX, 03H
+    A:INT 10H
+    DEC AL
+    LOOP A
+
+    MOV AH, 02H         ;SET CURSOR
+    MOV BH, 00H
+    MOV DH, 0CH         ;ROW 12
+    MOV DL, 1CH         ;
+    INT 10H
+
+    MOV AH, 09H         ;REQUEST CHARACTER DISPLAY
+
+    MOV AL, 00H         ;DO NOT ADVANCE CUSROR
+    MOV BH, 00H         ;PAGE 0
+    MOV BL, 0AEH        ;2 + 8 BLINKING GREEN, E YELLOW
+    MOV CX, 0001H       ;NUMBER OF CHARACTERS
+    MOV AL, 45H         ;E
+    INT 10H
+
+    MOV AH, 02H         ;SET CURSOR
+    MOV BH, 00H
+    MOV DH, 0CH         ;ROW 12
+    MOV DL, 1DH         ;
+    INT 10H
+
+    MOV AH, 09H         ;REQUEST CHARACTER DISPLAY
+
+    MOV AL, 00H         ;DO NOT ADVANCE CUSROR
+    MOV BH, 00H         ;PAGE 0
+    MOV BL, 47H         ;2 + 8 BLINKING GREEN, E YELLOW
+    MOV CX, 0001H       ;NUMBER OF CHARACTERS
+    MOV AL, 48H         ;H
+    MOV CX, 03H
+    B:INT 10H
+    DEC AL
+    LOOP B
+
+    MOV AH, 02H         ;SET CURSOR
+    MOV BH, 00H
+    MOV DH, 0CH         ;ROW 12
+    MOV DL, 20H         ;
+    INT 10H
+
+    MOV AH, 09H         ;REQUEST CHARACTER DISPLAY
+
+    MOV AL, 00H         ;DO NOT ADVANCE CUSROR
+    MOV BH, 00H         ;PAGE 0
+    MOV BL, 0AEH        ;2 + 8 BLINKING GREEN, E YELLOW
+    MOV CX, 0001H       ;NUMBER OF CHARACTERS
+    MOV AL, 49H         ;I
+    INT 10H
+
+    MOV AH, 02H         ;SET CURSOR
+    MOV BH, 00H
+    MOV DH, 0CH         ;ROW 12
+    MOV DL, 21H         ;
+    INT 10H
+
+    MOV AH, 09H         ;REQUEST CHARACTER DISPLAY
+
+    MOV AL, 00H         ;DO NOT ADVANCE CUSROR
+    MOV BH, 00H         ;PAGE 0
+    MOV BL, 47H         ;2 + 8 BLINKING GREEN, E YELLOW
+    MOV CX, 0001H       ;NUMBER OF CHARACTERS
+    MOV AL, 4EH         ;N
+    MOV CX, 05H
+    C:INT 10H
+    DEC AL
+    LOOP C
+
+    MOV AH, 02H         ;SET CURSOR
+    MOV BH, 00H
+    MOV DH, 0CH         ;ROW 12
+    MOV DL, 26H         ;
+    INT 10H
+
+    MOV AH, 09H         ;REQUEST CHARACTER DISPLAY
+
+    MOV AL, 00H         ;DO NOT ADVANCE CUSROR
+    MOV BH, 00H         ;PAGE 0
+    MOV BL, 0AEH        ;2 + 8 BLINKING GREEN, E YELLOW
+    MOV CX, 0001H       ;NUMBER OF CHARACTERS
+    MOV AL, 4FH         ;0
+    INT 10H
+
+    MOV AH, 02H         ;SET CURSOR
+    MOV BH, 00H
+    MOV DH, 0CH         ;ROW 12
+    MOV DL, 27H         ;
+    INT 10H
+
+    MOV AH, 09H         ;REQUEST CHARACTER DISPLAY
+    MOV AL, 00H         ;DO NOT ADVANCE CUSROR
+    MOV BH, 00H         ;PAGE 0
+    MOV BL, 47H         ;2 + 8 BLINKING GREEN, E YELLOW
+    MOV CX, 0001H       ;NUMBER OF CHARACTERS
+    MOV AL, 54H         ;T
+    MOV CX, 05H
+    D:INT 10H
+    DEC AL
+    LOOP D
+
+    MOV AH, 02H         ;SET CURSOR
+    MOV BH, 00H
+    MOV DH, 0CH         ;ROW 12
+    MOV DL, 2CH         ;
+    INT 10H
+
+    MOV AH, 09H         ;REQUEST CHARACTER DISPLAY
+
+    MOV AL, 00H         ;DO NOT ADVANCE CUSROR
+    MOV BH, 00H         ;PAGE 0
+    MOV BL, 0AEH        ;2 + 8 BLINKING GREEN, E YELLOW
+    MOV CX, 0001H       ;NUMBER OF CHARACTERS
+    MOV AL, 55H         ;U
+    INT 10H
+
+    MOV AH, 02H         ;SET CURSOR
+    MOV BH, 00H
+    MOV DH, 0CH         ;ROW 12
+    MOV DL, 2DH         ;
+    INT 10H
+
+    MOV AH, 09H         ;REQUEST CHARACTER DISPLAY
+
+    MOV AL, 00H         ;DO NOT ADVANCE CUSROR
+    MOV BH, 00H         ;PAGE 0
+    MOV BL, 47H         ;2 + 8 BLINKING GREEN, E YELLOW
+    MOV CX, 0001H       ;NUMBER OF CHARACTERS
+    MOV AL, 5AH         ;Z
+    MOV CX, 05H
+    E:INT 10H
+    DEC AL
+    LOOP E
+
+    MOV AX, 4C00H
+    INT 21H
+END

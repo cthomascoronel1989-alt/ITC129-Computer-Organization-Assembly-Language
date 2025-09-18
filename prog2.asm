@@ -1,0 +1,27 @@
+;THOMAS JOSHUA R. CORONEL
+;SEPTEMBER 13, 2025
+TITLE prog2.asm
+DOSSEG
+.MODEL SMALL
+.STACK 0100H 
+.DATA
+.CODE 
+    MOV AH, 02H 
+    MOV CX, 0AH
+    MOV DL, 30H 
+    A: INT 21H 
+
+    MOV BL, DL 
+    MOV DL, 0AH 
+    INT 21H 
+
+    MOV DL, 0DH 
+    INT 21H 
+
+    MOV DL, BL
+    INC DL
+    LOOP A 
+
+    MOV AX, 4C00H 
+    INT 21H 
+END
